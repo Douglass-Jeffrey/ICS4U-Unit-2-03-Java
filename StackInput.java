@@ -45,12 +45,28 @@ public class StackInput {
           // Pushes user input into arraylist in MrCoxallStack 
           clasStack.push(numberChosen);
         }
+        
+        // finds amount of numbers user wishes to pop
+        System.out.println("Enter the amount of integers you wish to pop: ");
+        System.out.println();
+        int popNum = userInput.nextInt();
+        // checks if inputs are valid
+        if (popNum < 1) {
+          System.out.println("Invalid pop number assuming you want"
+                             + " nothing popped...");
+        } else {
+          // executes popping popNum amount of times
+          for (int popCount = 0; popCount < popNum; popCount++) {
+            // pops top number in stack
+            System.out.println("Popped Num: " + clasStack.pop());
+          }
+        }
 
-        // pops top number in stack
-        System.out.println("Popped Num: " + clasStack.pop());
         // states current values located in stack
         System.out.println("Values in Stack: " + clasStack.currentStack());
       }
+    } catch (NullPointerException e) {
+      System.out.println("Invalid Input. More numbers Popped than in stack");
     } catch (Exception e) {
       System.out.println("Invalid Input");
     }

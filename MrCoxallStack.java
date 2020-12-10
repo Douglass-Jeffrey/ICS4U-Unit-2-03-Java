@@ -12,11 +12,11 @@ import java.util.ArrayList;
 public class MrCoxallStack {
     
   // Creates arraylist that will act as a stack
-  private ArrayList<Integer> _stackAsArray = new ArrayList<Integer>();
+  private ArrayList<Integer> stackAsArray = new ArrayList<Integer>();
 
   // Method for adding inputs to list
   public void push(int receivedNum) {
-    _stackAsArray.add(receivedNum);
+    stackAsArray.add(receivedNum);
   }
 
   /**
@@ -24,9 +24,13 @@ public class MrCoxallStack {
    */
 
   public int pop() {
-    int poppedNumber = this._stackAsArray.get(_stackAsArray.size() - 1);
-    _stackAsArray.remove(_stackAsArray.size() - 1);
-    return poppedNumber;
+    if (this.stackAsArray.size() == 0) {
+      throw null;
+    } else {
+      int poppedNumber = this.stackAsArray.get(stackAsArray.size() - 1);
+      stackAsArray.remove(stackAsArray.size() - 1);
+      return poppedNumber;
+    }
   }
 
   /**
@@ -35,8 +39,8 @@ public class MrCoxallStack {
 
   public String currentStack() {
     String arrayVal = "Current ArrayList: ";
-    for (int counter = 0; counter < _stackAsArray.size(); counter++) {
-      arrayVal = arrayVal + _stackAsArray.get(counter) + ", ";
+    for (int counter = 0; counter < stackAsArray.size(); counter++) {
+      arrayVal = arrayVal + stackAsArray.get(counter) + ", ";
     }
     return arrayVal;
   }
